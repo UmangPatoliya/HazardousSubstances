@@ -2,6 +2,75 @@
 @using HazardousSubstancesBlazorServerApp.Pages.Components
 @using HazardousSubstancesBlazorServerApp.Model
 
+
+<DxLayoutBreakpoint DeviceSize="DeviceSize.XSmall" @bind-IsActive="@isXSmallScreen" />
+<DxLayoutBreakpoint DeviceSize="DeviceSize.Small" @bind-IsActive="@isXSmallScreen" />
+
+<DxGridLayout CssClass="h-100" ColumnSpacing="8px" RowSpacing="8px">
+    <Rows>
+        @if (isXSmallScreen)
+        {
+            <DxGridLayoutRow Height="150px" Areas="item1" />
+            <DxGridLayoutRow Height="550px" Areas="item2" />
+            <DxGridLayoutRow Height="550px" Areas="item3" />
+            <DxGridLayoutRow Height="300px" Areas="item4" />
+            <DxGridLayoutRow Height="450px" Areas="item5" />
+        }
+        else
+        {
+            <DxGridLayoutRow Height="150px" Areas="item1 item1 item5" />
+            <DxGridLayoutRow Height="550px" Areas="item2 item3 item5" />
+            <DxGridLayoutRow Height="300px" Areas="item4 item4 item5" />
+        }
+    </Rows>
+    <Columns>
+        <DxGridLayout2olumn Width="2fr" />
+        @if (!isXSmallScreen)
+        {
+            <DxGridLayoutColumn Width="30%" />
+            <DxGridLayoutColumn Width="30%" />
+            <DxGridLayoutColumn Width="40%" />
+        }
+    </Columns>
+    <Items>
+        <DxGridLayoutItem Area="item1">
+            <Template>
+                <div class="gridlayout-header gridlayout-item">
+                    <ProductInfo Product=@Product></ProductInfo>
+                </div>
+            </Template>
+        </DxGridLayoutItem>
+        <DxGridLayoutItem Area="item2">
+            <Template>
+                <div class="gridlayout-content gridlayout-item">
+                    Item 2
+                </div>
+            </Template>
+        </DxGridLayoutItem>
+        <DxGridLayoutItem Area="item3">
+            <Template>
+                <div class="gridlayout-left-side-bar gridlayout-item">
+                    <ProductDesc Product=@Product></ProductDesc>
+                </div>
+            </Template>
+        </DxGridLayoutItem>
+        <DxGridLayoutItem Area="item4">
+            <Template>
+                <div class="gridlayout-right-side-bar gridlayout-item">
+                    Item 4
+                </div>
+            </Template>
+        </DxGridLayoutItem>
+        <DxGridLayoutItem Area="item5">
+            <Template>
+                <div class="gridlayout-footer gridlayout-item">
+                    Item 5
+                </div>
+            </Template>
+        </DxGridLayoutItem>
+    </Items>
+</DxGridLayout>
+@*
 <DxGridLayout CssClass="w-100 ch-480">
     <Rows>
         <DxGridLayoutRow Height="20%" />
@@ -9,9 +78,9 @@
         <DxGridLayoutRow Height="20%" />
     </Rows>
     <Columns>
-        <DxGridLayoutColumn Width="25%" />
-        <DxGridLayoutColumn Width="25%" />
-        <DxGridLayoutColumn Width="50%" />
+        <DxGridLayoutColumn Width="30%" />
+        <DxGridLayoutColumn Width="30%" />
+        <DxGridLayoutColumn Width="40%" />
     </Columns>
     <Items>
         <DxGridLayoutItem Row="0" Column="0" ColumnSpan="2">
@@ -50,13 +119,16 @@
             </Template>
         </DxGridLayoutItem>
     </Items>
-</DxGridLayout>
+</DxGridLayout>*@
 
 @code {
+    public bool isXSmallScreen;
+
     public Product Product { get; set; } = new Product()
     {
         ID = 1,
         Name = "MANNOL 7507 Defender 10W-40",
+        ContactNo = "+43 1 4064343",
         Description = "Universalmotorenöl auf hydrosynthetischer Basis für Benzin- und Dieselmotoren, sowohl neuer als auch 'alter' Marken und mit hoher Laufleistung. Entwickelt auf Basis der Anforderungen europäischer Hersteller.",
         Warning = new List<string> 
         {
