@@ -1,10 +1,10 @@
 ﻿@using HazardousSubstancesBlazorServerApp.Model
 <style>
-    #carouselExampleIndicators{
+    #carouselExampleIndicators {
         height: 250px;
     }
 
-    .carousel-img{
+    .carousel-img {
         height: 230px;
     }
 </style>
@@ -16,13 +16,13 @@
             string areaLabel = $"Slide {i + 1}";
             if (i == 0)
             {
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=@i class="active" aria-current="true" aria-label=@areaLabel></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=@i class="active" aria-current="true" aria-label=@areaLabel></button>
             }
             else
             {
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=@i aria-label=@areaLabel></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=@i aria-label=@areaLabel></button>
             }
-        }    
+        }
     </div>
     <div class="carousel-inner">
         @for (int i = 0; i < Product.Images.Count; i++)
@@ -33,9 +33,9 @@
             {
                 imgClass = "carousel-item active";
             }
-            <div class=@imgClass>
-                <img src=@imgSrc class="d-block w-90 carousel-img" alt="...">
-            </div>
+                <div class=@imgClass>
+                    <img src=@imgSrc class="d-block w-90 carousel-img" alt="...">
+                </div>
         };
 
     </div>
@@ -53,18 +53,40 @@
 
 <!-- BarChart Starts Here --!>
 <DxChart T="HazardNessLevel" Data="@Product.HazardNessLevels" Width="100%" Rotated="true" Height="200px">
-         
-    <DxChartBarSeries Name="Hazardness Level"
+
+    <DxChartBarSeries Name="Physikalisch"
                       T="HazardNessLevel"
                       TArgument="string"
                       TValue="int"
                       ArgumentField="pasi => pasi.HazardNessName"
-                      ValueField="pasi => pasi.Intensity" />
+                      ValueField="pasi => pasi.Intensity"
+                      Filter='pasi => pasi.HazardNessName == "Physikalisch"' />
+
+    <DxChartBarSeries Name="Gesundheit"
+                      T="HazardNessLevel"
+                      TArgument="string"
+                      TValue="int"
+                      ArgumentField="pasi => pasi.HazardNessName"
+                      ValueField="pasi => pasi.Intensity"
+                      Filter='pasi => pasi.HazardNessName == "Gesundheit"' />
+
+    <DxChartBarSeries Name="Umwelt"
+                      T="HazardNessLevel"
+                      TArgument="string"
+                      TValue="int"
+                      ArgumentField="pasi => pasi.HazardNessName"
+                      ValueField="pasi => pasi.Intensity"
+                      Filter='pasi => pasi.HazardNessName == "Umwelt"' />
 
     <DxChartLegend Position="RelativePosition.Outside"
                    HorizontalAlignment="HorizontalAlignment.Center"
-                   VerticalAlignment="VerticalEdge.Bottom" />
-    
+                   VerticalAlignment="VerticalEdge.Bottom" Visible="false" />
+
+    <DxChartTitle Text="Hazardness Levels"
+                   HorizontalAlignment="HorizontalAlignment.Center"
+                   VerticalAlignment="VerticalEdge.Bottom">
+    </DxChartTitle>
+
      <DxChartTooltip Enabled="true"
                    Position="RelativePosition.Outside">
                    <div style="margin: 0.75rem">
