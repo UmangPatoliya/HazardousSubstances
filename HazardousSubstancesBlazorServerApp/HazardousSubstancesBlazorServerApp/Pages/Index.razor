@@ -1,59 +1,51 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test </label> <br/> <br/>
-
-<label>Scroll Test END</label>
+<DxGridLayout CssClass="w-100 ch-480">
+    <Rows>
+        <DxGridLayoutRow Height="10%" />
+        <DxGridLayoutRow Height="50%" />
+        <DxGridLayoutRow Height="40%" />
+    </Rows>
+    <Columns>
+        <DxGridLayoutColumn Width="25%" />
+        <DxGridLayoutColumn Width="25%" />
+        <DxGridLayoutColumn Width="50%" />
+    </Columns>
+    <Items>
+        <DxGridLayoutItem Row="0" Column="0" ColumnSpan="2">
+            <Template>
+                <div class="gridlayout-header gridlayout-item" style="background-color: green;">
+                    Item-1
+                </div>
+            </Template>
+        </DxGridLayoutItem>
+        <DxGridLayoutItem Row="1" Column="0">
+            <Template>
+                <div class="gridlayout-content gridlayout-item" style="background-color: red;">
+                    Item-2
+                </div>
+            </Template>
+        </DxGridLayoutItem>
+        <DxGridLayoutItem Row="1" Column="1">
+            <Template>
+                <div class="gridlayout-left-side-bar gridlayout-item" style="background-color: blue;">
+                    Item-3
+                </div>
+            </Template>
+        </DxGridLayoutItem>
+        <DxGridLayoutItem Row="2" Column="0" ColumnSpan="2">
+            <Template>
+                <div class="gridlayout-right-side-bar gridlayout-item" style="background-color: yellow;">
+                    Item-4
+                </div>
+            </Template>
+        </DxGridLayoutItem>
+        <DxGridLayoutItem Row="0" Column="2">
+            <Template>
+                <div class="gridlayout-footer gridlayout-item" style="background-color: pink;">
+                    Item-5
+                </div>
+            </Template>
+        </DxGridLayoutItem>
+    </Items>
+</DxGridLayout>
