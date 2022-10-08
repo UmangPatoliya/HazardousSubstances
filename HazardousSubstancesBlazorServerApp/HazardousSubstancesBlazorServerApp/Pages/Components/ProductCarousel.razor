@@ -1,5 +1,73 @@
-﻿<h3>ProductCarousel</h3>
+﻿@using HazardousSubstancesBlazorServerApp.Model
 
+<!-- Carousel Ends Here --!>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+        @for (int i = 0; i < Product.Images.Count; i++)
+        {
+            string areaLabel = $"Slide {i + 1}";
+            if (i == 0)
+            {
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=@i class="active" aria-current="true" aria-label=@areaLabel></button>
+            }
+            else
+            {
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=@i aria-label=@areaLabel></button>
+            }
+        }    
+    </div>
+    <div class="carousel-inner">
+        @for (int i = 0; i < Product.Images.Count; i++)
+        {
+            string imgSrc = $"Images/Product/{Product.ID}/{Product.Images[i]}";
+            string imgClass = "carousel-item";
+            if (i == 0)
+            {
+                imgClass = "carousel-item active";
+            }
+            <div class=@imgClass>
+                <img src=@imgSrc class="d-block w-100" alt="...">
+            </div>
+        };
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- Carousel Ends Here --!>
+
+<!-- BarChart Starts Here --!>
+<DxChart T="HazardNessLevel" Data="@Product.HazardNessLevels" Width="100%" Rotated="true" Height="200px">
+         
+    <DxChartBarSeries Name="Hazardness Level"
+                      T="HazardNessLevel"
+                      TArgument="string"
+                      TValue="int"
+                      ArgumentField="pasi => pasi.HazardNessName"
+                      ValueField="pasi => pasi.Intensity" />
+
+    <DxChartLegend Position="RelativePosition.Outside"
+                   HorizontalAlignment="HorizontalAlignment.Center"
+                   VerticalAlignment="VerticalEdge.Bottom" />
+    
+     <DxChartTooltip Enabled="true"
+                   Position="RelativePosition.Outside">
+                   <div style="margin: 0.75rem">
+                        <div class="fw-bold">@context.Point.Argument</div>
+                        <div>Hazardness: @context.Point.SeriesName</div>
+                        <div>Intensity: @($"{context.Point.Value:N0}")</div>
+                    </div>
+    </DxChartTooltip>
+</DxChart>
+<!-- BarChart Ends Here --!>
 @code {
-
+    [Parameter]
+    public Product Product { get; set; }
 }

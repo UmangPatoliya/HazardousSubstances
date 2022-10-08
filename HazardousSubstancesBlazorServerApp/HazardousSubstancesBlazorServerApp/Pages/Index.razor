@@ -23,8 +23,8 @@
         </DxGridLayoutItem>
         <DxGridLayoutItem Row="1" Column="0">
             <Template>
-                <div class="gridlayout-content gridlayout-item" style="background-color: red;">
-                    Item-2
+                <div class="gridlayout-content gridlayout-item">
+                    <ProductCarousel Product=@Product></ProductCarousel>
                 </div>
             </Template>
         </DxGridLayoutItem>
@@ -35,17 +35,17 @@
                 </div>
             </Template>
         </DxGridLayoutItem>
-        <DxGridLayoutItem Row="2" Column="0" ColumnSpan="2">
+        <DxGridLayoutItem Row="2" Column="0">
             <Template>
                 <div class="gridlayout-right-side-bar gridlayout-item" style="background-color: yellow;">
                     <ProductStat></ProductStat>
                 </div>
             </Template>
         </DxGridLayoutItem>
-        <DxGridLayoutItem Row="0" Column="2">
+        <DxGridLayoutItem Row="0" Column="2" ColumnSpan="3">
             <Template>
-                <div class="gridlayout-footer gridlayout-item" style="background-color: pink;">
-                    Item-5
+                <div class="gridlayout-footer gridlayout-item">
+                    <ProductPdf Product=@Product></ProductPdf>
                 </div>
             </Template>
         </DxGridLayoutItem>
@@ -71,5 +71,30 @@
             "Sample text for ear protection",
             "Sample text for ear protection"
         },
+        Images = new List<string>
+        {
+            "Mannol1 (For Carousel).jpg",
+            "Mannol2 (For Carousel).jpg",
+            "Mannol3 (For Carousel).jpg",
+            "Mannol4 (For Carousel).jpg"
+        },
+        HazardNessLevels = new List<HazardNessLevel>{
+            new HazardNessLevel()
+            {
+                HazardNessName = "Level 1",
+                Intensity = 20
+            },
+            new HazardNessLevel()
+            {
+                HazardNessName = "Level 2",
+                Intensity = 70
+            },
+            new HazardNessLevel()
+            {
+                HazardNessName = "Level 3",
+                Intensity = 40
+            },
+        },
+        Pdf = "1"
     };
 }
