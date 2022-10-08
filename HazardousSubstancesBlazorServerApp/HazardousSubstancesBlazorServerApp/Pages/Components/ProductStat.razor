@@ -1,5 +1,113 @@
-﻿<h3>ProductStat</h3>
+﻿<DxGrid @ref="Grid"
+        Data="@Data"
+        AutoExpandAllGroupRows="false">
+    <Columns>
+        <DxGridDataColumn FieldName="Department" MinWidth="200" GroupIndex="0" />
+        <DxGridDataColumn FieldName="Dokument" MinWidth="200" />
+        <DxGridDataColumn FieldName="Datum" MinWidth="100" />
+        <DxGridDataColumn FieldName="Status" MinWidth="100" />
+    </Columns>
+</DxGrid>
 
 @code {
+    object Data { get; set; }
+    Dictionary<string, string[]> GroupInfo { get; } = new Dictionary<string, string[]> {
+        { "Department", new string[] { "Department" } }
+    };
+    string CurrentGroupInfoKey { get; set; } = "Country";
+    IGrid Grid { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        Data = new List<Record>()
+        {
+            new Record()
+            {
+                Department = "Sicherheitsdatenblätter/SDS",
+                Dokument = "Sicherheitsdatenblätter 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Sicherheitsdatenblätter/SDS",
+                Dokument = "Sicherheitsdatenblätter 2013-01-02",
+                Datum = new DateTime(2013, 1, 2),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Sicherheitsdatenblätter/SDS",
+                Dokument = "Sicherheitsdatenblätter 2013-01-03",
+                Datum = new DateTime(2013, 1, 3),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Technische Datenblätter/TDS",
+                Dokument = "Technische Datenblätter 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Bedienungsanleitungen",
+                Dokument = "Bedienungsanleitungen 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "CE-Erklärungen",
+                Dokument = "CE-Erklärungen 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Lieferanten",
+                Dokument = "Lieferanten 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Hantierende Personen",
+                Dokument = "Hantierende Personen 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+        };
+    }
+    void ExpandAllRows_Click()
+    {
+        Grid.ExpandAllGroupRows();
+    }
+    void CollapseAllRows_Click()
+    {
+        Grid.CollapseAllGroupRows();
+    }
+    // This method demonstrates how to group Grid data in code.
+    // In this demo, this method is called when the 'Group by' option value changes.
+    protected void ChangeGrouping(string key)
+    {
+        CurrentGroupInfoKey = key;
+        var currentGroupInfo = GroupInfo[key];
+        Grid.BeginUpdate();
+        Grid.ClearSort();
+        foreach (var columnName in currentGroupInfo)
+            Grid.GroupBy(columnName);
+        Grid.EndUpdate();
+    }
 
+    public class Record
+    {
+        public Record()
+        {
+        }
+        public string ID { get; set; }
+        public string Department { get; set; }
+        public string Dokument { get; set; }
+        public DateTime Datum { get; set; }
+        public string Status { get; set; }
+    }
 }

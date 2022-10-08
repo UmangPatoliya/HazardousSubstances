@@ -2,8 +2,9 @@
 
 <style>
     .alert {
-        padding: 3px;
+        padding: 0px;
         text-align: center;
+        margin-bottom: unset;   
     }
 </style>
 
@@ -11,9 +12,8 @@
     @Product.Name
 </div>
 <div style="text-align:end; padding-right:10px;">
-    <img src="/Images/Common/depositphotos_26680195-stock-photo-emergency-call-icon.png" height="50px" width="50px" />
-    <br />
-    @Product.ContactNo
+    <img src="/Images/Common/depositphotos_26680195-stock-photo-emergency-call-icon.png" height="32px" width="32px" />
+    &nbsp;<span class="mt-1">@Product.ContactNo</span>
 </div>
 
 @code {

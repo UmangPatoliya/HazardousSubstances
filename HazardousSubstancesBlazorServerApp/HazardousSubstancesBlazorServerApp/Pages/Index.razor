@@ -10,21 +10,20 @@
     <Rows>
         @if (isXSmallScreen)
         {
-            <DxGridLayoutRow Height="150px" Areas="item1" />
-            <DxGridLayoutRow Height="550px" Areas="item2" />
-            <DxGridLayoutRow Height="550px" Areas="item3" />
+            <DxGridLayoutRow Height="75px" Areas="item1" />
+            <DxGridLayoutRow Height="500px" Areas="item2" />
+            <DxGridLayoutRow Height="500px" Areas="item3" />
             <DxGridLayoutRow Height="300px" Areas="item4" />
             <DxGridLayoutRow Height="450px" Areas="item5" />
         }
         else
         {
-            <DxGridLayoutRow Height="150px" Areas="item1 item1 item5" />
-            <DxGridLayoutRow Height="550px" Areas="item2 item3 item5" />
+            <DxGridLayoutRow Height="75px" Areas="item1 item1 item5" />
+            <DxGridLayoutRow Height="500px" Areas="item2 item3 item5" />
             <DxGridLayoutRow Height="300px" Areas="item4 item4 item5" />
         }
     </Rows>
     <Columns>
-        <DxGridLayout2olumn Width="2fr" />
         @if (!isXSmallScreen)
         {
             <DxGridLayoutColumn Width="30%" />
@@ -35,29 +34,29 @@
     <Items>
         <DxGridLayoutItem Area="item1">
             <Template>
-                <div class="gridlayout-header gridlayout-item">
+                <div class="gridlayout-item">
                     <ProductInfo Product=@Product></ProductInfo>
                 </div>
             </Template>
         </DxGridLayoutItem>
         <DxGridLayoutItem Area="item2">
             <Template>
-                <div class="gridlayout-content gridlayout-item">
+                <div class="gridlayout-item">
                     <ProductCarousel Product=@Product></ProductCarousel>
                 </div>
             </Template>
         </DxGridLayoutItem>
         <DxGridLayoutItem Area="item3">
             <Template>
-                <div class="gridlayout-left-side-bar gridlayout-item">
+                <div class="gridlayout-item">
                     <ProductDesc Product=@Product></ProductDesc>
                 </div>
             </Template>
         </DxGridLayoutItem>
         <DxGridLayoutItem Area="item4">
             <Template>
-                <div class="gridlayout-right-side-bar gridlayout-item">
-                    Item 4
+                <div class="gridlayout-item">
+                    <ProductStat></ProductStat>
                 </div>
             </Template>
         </DxGridLayoutItem>
