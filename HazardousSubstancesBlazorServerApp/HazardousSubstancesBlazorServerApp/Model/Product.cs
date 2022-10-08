@@ -4,6 +4,7 @@
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public string ContactNo { get; set; }
 
         List<string> Images { get; set; } = new List<string>();
         public string Description { get; set; }
