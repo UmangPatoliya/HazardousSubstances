@@ -1,6 +1,7 @@
 .page {
-    position: relative;
+    position: absolute;
     display: flex;
+    margin-top: 58px;
     flex-direction: column;
 }
 
