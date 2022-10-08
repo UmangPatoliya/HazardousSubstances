@@ -1,10 +1,12 @@
 ﻿@page "/"
+@using HazardousSubstancesBlazorServerApp.Pages.Components
+@using HazardousSubstancesBlazorServerApp.Model
 
 <DxGridLayout CssClass="w-100 ch-480">
     <Rows>
-        <DxGridLayoutRow Height="10%" />
-        <DxGridLayoutRow Height="50%" />
-        <DxGridLayoutRow Height="40%" />
+        <DxGridLayoutRow Height="20%" />
+        <DxGridLayoutRow Height="60%" />
+        <DxGridLayoutRow Height="20%" />
     </Rows>
     <Columns>
         <DxGridLayoutColumn Width="25%" />
@@ -14,8 +16,8 @@
     <Items>
         <DxGridLayoutItem Row="0" Column="0" ColumnSpan="2">
             <Template>
-                <div class="gridlayout-header gridlayout-item" style="background-color: green;">
-                    Item-1
+                <div class="gridlayout-header gridlayout-item">
+                    <ProductInfo Product=@Product></ProductInfo>
                 </div>
             </Template>
         </DxGridLayoutItem>
@@ -28,15 +30,15 @@
         </DxGridLayoutItem>
         <DxGridLayoutItem Row="1" Column="1">
             <Template>
-                <div class="gridlayout-left-side-bar gridlayout-item" style="background-color: blue;">
-                    Item-3
+                <div class="gridlayout-left-side-bar gridlayout-item">
+                    <ProductDesc Product=@Product></ProductDesc>
                 </div>
             </Template>
         </DxGridLayoutItem>
         <DxGridLayoutItem Row="2" Column="0" ColumnSpan="2">
             <Template>
                 <div class="gridlayout-right-side-bar gridlayout-item" style="background-color: yellow;">
-                    Item-4
+                    <ProductStat></ProductStat>
                 </div>
             </Template>
         </DxGridLayoutItem>
@@ -49,3 +51,25 @@
         </DxGridLayoutItem>
     </Items>
 </DxGridLayout>
+
+@code {
+    public Product Product { get; set; } = new Product()
+    {
+        ID = 1,
+        Name = "MANNOL 7507 Defender 10W-40",
+        Description = "Universalmotorenöl auf hydrosynthetischer Basis für Benzin- und Dieselmotoren, sowohl neuer als auch 'alter' Marken und mit hoher Laufleistung. Entwickelt auf Basis der Anforderungen europäischer Hersteller.",
+        Warning = new List<string> 
+        {
+            "Sample text for fire hazard",
+            "Sample text for fire hazard",
+            "Sample text for fire hazard",
+            "Sample text for fire hazard",
+            "Sample text for fire hazard"
+        },
+        Info = new List<string>
+        {
+            "Sample text for ear protection",
+            "Sample text for ear protection"
+        },
+    };
+}

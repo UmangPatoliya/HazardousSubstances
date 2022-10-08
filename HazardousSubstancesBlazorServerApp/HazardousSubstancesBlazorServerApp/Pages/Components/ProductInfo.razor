@@ -1,0 +1,17 @@
+﻿@using HazardousSubstancesBlazorServerApp.Model
+
+<style>
+    .alert {
+        padding: 3px;
+        text-align: center;
+    }
+</style>
+
+<div class="alert alert-dark" role="alert">
+    @Product.Name
+</div>
+
+@code {
+    [Parameter]
+    public Product Product { get; set; }
+}
