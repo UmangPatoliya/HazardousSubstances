@@ -43,7 +43,7 @@
         <DxGridLayoutItem Area="item2">
             <Template>
                 <div class="gridlayout-content gridlayout-item">
-                    Item 2
+                    <ProductCarousel Product=@Product></ProductCarousel>
                 </div>
             </Template>
         </DxGridLayoutItem>
@@ -63,8 +63,8 @@
         </DxGridLayoutItem>
         <DxGridLayoutItem Area="item5">
             <Template>
-                <div class="gridlayout-footer gridlayout-item">
-                    Item 5
+                <div class="gridlayout-item">
+                    <ProductPdf Product=@Product></ProductPdf>
                 </div>
             </Template>
         </DxGridLayoutItem>
@@ -153,20 +153,20 @@
         HazardNessLevels = new List<HazardNessLevel>{
             new HazardNessLevel()
             {
-                HazardNessName = "Level 1",
+                HazardNessName = "Physikalisch",
                 Intensity = 20
             },
             new HazardNessLevel()
             {
-                HazardNessName = "Level 2",
+                HazardNessName = "Gesundheit",
                 Intensity = 70
             },
             new HazardNessLevel()
             {
-                HazardNessName = "Level 3",
+                HazardNessName = "Umwelt",
                 Intensity = 40
             },
         },
-        Pdf = "1"
-    };
+            Pdf = "SDS datenblatt_0001907_1"
+        };
 }

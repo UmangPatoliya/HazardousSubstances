@@ -1,5 +1,13 @@
 ﻿@using HazardousSubstancesBlazorServerApp.Model
+<style>
+    #carouselExampleIndicators{
+        height: 250px;
+    }
 
+    .carousel-img{
+        height: 230px;
+    }
+</style>
 <!-- Carousel Ends Here --!>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
     <div class="carousel-indicators">
@@ -26,7 +34,7 @@
                 imgClass = "carousel-item active";
             }
             <div class=@imgClass>
-                <img src=@imgSrc class="d-block w-100" alt="...">
+                <img src=@imgSrc class="d-block w-90 carousel-img" alt="...">
             </div>
         };
 
