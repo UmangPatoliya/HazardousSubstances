@@ -3,15 +3,9 @@
 @{
     string pdfUrl = $"pdf/product/{Product.ID}/{Product.Pdf}.pdf";
 }
-<div class="container-fluid">
-    <div class="row">
-        <p style="text-align:center">@Product.Pdf</p>
-    </div>
 
-    <div class="row" style="height:575px;">
-        <embed src=@pdfUrl type="application/pdf" style="padding-right: unset;">
-    </div>
-</div>
+<p style="text-align:center">@Product.Pdf</p>
+<embed src=@pdfUrl type="application/pdf" style="width: 100%; height: calc(100% - 58px);">
 
 @code {
     [Parameter]
