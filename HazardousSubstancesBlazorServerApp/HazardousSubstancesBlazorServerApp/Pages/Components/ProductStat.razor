@@ -1,5 +1,6 @@
 ﻿@using HazardousSubstancesBlazorServerApp.Model
 
+<!-- GridView -->
 <DxGrid @ref="Grid"
         Data="@Data"
         AutoExpandAllGroupRows="false">
@@ -18,20 +19,24 @@
     Dictionary<string, string[]> GroupInfo { get; } = new Dictionary<string, string[]> {
         { "Department", new string[] { "Department" } }
     };
-    string CurrentGroupInfoKey { get; set; } = "Country";
+    string CurrentGroupInfoKey { get; set; } = "Department";
     IGrid Grid { get; set; }
+    
     protected override async Task OnInitializedAsync()
     {
         Data = Product.Records;
     }
+    
     void ExpandAllRows_Click()
     {
         Grid.ExpandAllGroupRows();
     }
+    
     void CollapseAllRows_Click()
     {
         Grid.CollapseAllGroupRows();
     }
+
     // This method demonstrates how to group Grid data in code.
     // In this demo, this method is called when the 'Group by' option value changes.
     protected void ChangeGrouping(string key)

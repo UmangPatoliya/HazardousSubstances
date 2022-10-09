@@ -1,7 +1,5 @@
-using HazardousSubstancesBlazorServerApp.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using DevExpress.Blazor;
+using HazardousSubstancesBlazorServerApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +8,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
+// DevExpress
 builder.Services.AddDevExpressBlazor(configure => configure.BootstrapVersion = BootstrapVersion.v5);
 builder.WebHost.UseWebRoot("wwwroot");
 builder.WebHost.UseStaticWebAssets();

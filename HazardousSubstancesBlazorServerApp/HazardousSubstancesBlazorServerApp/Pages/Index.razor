@@ -2,15 +2,17 @@
 @using HazardousSubstancesBlazorServerApp.Pages.Components
 @using HazardousSubstancesBlazorServerApp.Model
 
-
+<!-- Adaptivity Break Points -->
 <DxLayoutBreakpoint DeviceSize="DeviceSize.XSmall" @bind-IsActive="@isXSmallScreen" />
 <DxLayoutBreakpoint DeviceSize="DeviceSize.Small" @bind-IsActive="@isSmallScreen" />
 <DxLayoutBreakpoint DeviceSize="DeviceSize.Medium" @bind-IsActive="@isMediumScreen" />
 
 <DxGridLayout CssClass="h-100" ColumnSpacing="8px" RowSpacing="8px">
     <Rows>
+
         @if (isXSmallScreen || isSmallScreen || isMediumScreen)
         {
+            <!-- Small Screen row layout -->
             <DxGridLayoutRow Height="175px" Areas="item1" />
             <DxGridLayoutRow Height="500px" Areas="item2" />
             <DxGridLayoutRow Height="500px" Areas="item3" />
@@ -19,6 +21,7 @@
         }
         else
         {
+            <!-- Large Screen row layout -->
             <DxGridLayoutRow Height="175px" Areas="item1 item1 item5" />
             <DxGridLayoutRow Height="500px" Areas="item2 item3 item5" />
             <DxGridLayoutRow Height="300px" Areas="item4 item4 item5" />
@@ -27,6 +30,7 @@
     <Columns>
         @if (!isXSmallScreen && !isSmallScreen && !isMediumScreen)
         {
+            <!-- Large Screen column layout -->
             <DxGridLayoutColumn Width="30%" />
             <DxGridLayoutColumn Width="30%" />
             <DxGridLayoutColumn Width="40%" />
@@ -34,6 +38,8 @@
         
     </Columns>
     <Items>
+
+        <!-- Item-1 -->
         <DxGridLayoutItem Area="item1">
             <Template>
                 <div class="gridlayout-item">
@@ -41,6 +47,8 @@
                 </div>
             </Template>
         </DxGridLayoutItem>
+        
+        <!-- Item-2 -->
         <DxGridLayoutItem Area="item2">
             <Template>
                 <div class="gridlayout-item">
@@ -48,6 +56,8 @@
                 </div>
             </Template>
         </DxGridLayoutItem>
+
+        <!-- Item-3 -->
         <DxGridLayoutItem Area="item3">
             <Template>
                 <div class="gridlayout-item">
@@ -55,6 +65,8 @@
                 </div>
             </Template>
         </DxGridLayoutItem>
+
+        <!-- Item-4 -->
         <DxGridLayoutItem Area="item4">
             <Template>
                 <div class="gridlayout-item">
@@ -62,6 +74,8 @@
                 </div>
             </Template>
         </DxGridLayoutItem>
+
+        <!-- Item-5 -->
         <DxGridLayoutItem Area="item5">
             <Template>
                 <ProductPdf Product=@Product></ProductPdf>
@@ -75,12 +89,15 @@
     public bool isSmallScreen;
     public bool isMediumScreen;
 
+    // Default Product Information
     public Product Product { get; set; } = new Product()
     {
         ID = 1,
         Name = "MANNOL 7507 Defender 10W-40",
         ContactNo = "+43 1 4064343",
-        Description = "Universalmotorenöl auf hydrosynthetischer Basis für Benzin- und Dieselmotoren, sowohl neuer als auch 'alter' Marken und mit hoher Laufleistung. Entwickelt auf Basis der Anforderungen europäischer Hersteller.",
+        Description_1 = "Blazor web forms",
+            Description_2 = "When only the Best will do",
+        Description_3 = "Universalmotorenöl auf hydrosynthetischer Basis für Benzin- und Dieselmotoren, sowohl neuer als auch 'alter' Marken und mit hoher Laufleistung. Entwickelt auf Basis der Anforderungen europäischer Hersteller.",
         Warning = new List<string> 
         {
             "Sample text for fire hazard",
