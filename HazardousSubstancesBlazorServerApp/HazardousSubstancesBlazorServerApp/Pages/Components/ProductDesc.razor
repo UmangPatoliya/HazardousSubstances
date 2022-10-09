@@ -1,10 +1,18 @@
 ﻿@using HazardousSubstancesBlazorServerApp.Model
 
 <style>
+    .desc-head-1 {
+        margin-bottom: 0px;
+    }
+    .desc-head-2 {
+        color:darkgray !important;
+    }
+
     .li-image {
         list-style-type: none !important;
         margin-left: 0px;
         padding-left: 0px;
+        padding-top: 2px;
         display: inline-block;
         width: 100%;
     }
@@ -19,37 +27,44 @@
         padding: 5px;
     }
 
-    .card {
+    .card-desc {
         padding:5px !important;
+        border: none !important;
+        min-height:450px !important;
     }
 
     .card-body {
         padding: 2px 10px;
     }
 
+    .desc-text-style {
+        font-size:13px;
+    }
+
 </style>
-<div class="card border-secondary mb-3">
+<div class="card card-desc shadow p-3 mb-5 bg-white rounded">
     <div class="card-body">
    
         <div class="row">
             <div class="col">
-                <h3>Blazor web forms</h3>
+                <h3 class="desc-head-1">Blazor web forms</h3>
+                <h5 class="desc-head-2">When only the Best will do</h5>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row desc-text-style">
             <div class="col">
                 @Product.Description
             </div>
         </div>
 
-        <div class="row">
+        <div class="row desc-text-style">
             <div class="col">
                 <ul style="padding:10px 0px 0px 0px;">
                 @foreach (string warn in Product.Warning)
                 {
                     <li class="li-image">
-                        <img src="images/common/0176 ghs02 entzündbare stoffe.png" height="32px" width="32px" />
+                        <img src="images/common/0176 ghs02 entzündbare stoffe.png" height="28px" width="28px" />
                         <span>
                             @warn
                         </span>
@@ -59,7 +74,7 @@
                 @foreach (string info in Product.Info)
                 {
                     <li class="li-image">
-                        <img src="images/common/gebotszeichen-gehoerschutz-benutzen-nach-iso-7010-m-003-12331-zhYL7-1476126955.png" height="32px" width="32px" />
+                            <img src="images/common/gebotszeichen-gehoerschutz-benutzen-nach-iso-7010-m-003-12331-zhYL7-1476126955.png" height="28px" width="28px" />
                         <span>
                             @info
                         </span>
