@@ -4,11 +4,12 @@
 
 
 <DxLayoutBreakpoint DeviceSize="DeviceSize.XSmall" @bind-IsActive="@isXSmallScreen" />
-<DxLayoutBreakpoint DeviceSize="DeviceSize.Small" @bind-IsActive="@isXSmallScreen" />
+<DxLayoutBreakpoint DeviceSize="DeviceSize.Small" @bind-IsActive="@isSmallScreen" />
+<DxLayoutBreakpoint DeviceSize="DeviceSize.Medium" @bind-IsActive="@isMediumScreen" />
 
 <DxGridLayout CssClass="h-100" ColumnSpacing="8px" RowSpacing="8px">
     <Rows>
-        @if (isXSmallScreen)
+        @if (isXSmallScreen || isSmallScreen || isMediumScreen)
         {
             <DxGridLayoutRow Height="175px" Areas="item1" />
             <DxGridLayoutRow Height="500px" Areas="item2" />
@@ -24,12 +25,13 @@
         }
     </Rows>
     <Columns>
-        @if (!isXSmallScreen)
+        @if (!isXSmallScreen && !isSmallScreen && !isMediumScreen)
         {
             <DxGridLayoutColumn Width="30%" />
             <DxGridLayoutColumn Width="30%" />
             <DxGridLayoutColumn Width="40%" />
         }
+        
     </Columns>
     <Items>
         <DxGridLayoutItem Area="item1">
@@ -70,6 +72,8 @@
 
 @code {
     public bool isXSmallScreen;
+    public bool isSmallScreen;
+    public bool isMediumScreen;
 
     public Product Product { get; set; } = new Product()
     {
