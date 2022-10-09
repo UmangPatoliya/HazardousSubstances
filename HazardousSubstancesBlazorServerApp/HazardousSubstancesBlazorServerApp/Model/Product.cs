@@ -12,11 +12,22 @@
         public List<string> Info { get; set; }
         public string Pdf { get; set; }
         public List<HazardNessLevel> HazardNessLevels { get; set;}
+
+        public List<Record> Records { get; set; }
     }
 
     public class HazardNessLevel
     {
         public string HazardNessName { get; set; }
         public int Intensity { get; set; }
+    }
+
+    public class Record
+    {
+        public string ID { get; set; }
+        public string Department { get; set; }
+        public string Dokument { get; set; }
+        public DateTime Datum { get; set; }
+        public string Status { get; set; }
     }
 }

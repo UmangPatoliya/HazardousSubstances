@@ -56,7 +56,7 @@
         <DxGridLayoutItem Area="item4">
             <Template>
                 <div class="gridlayout-item">
-                    <ProductStat></ProductStat>
+                    <ProductStat Product="@Product"></ProductStat>
                 </div>
             </Template>
         </DxGridLayoutItem>
@@ -166,6 +166,64 @@
                 Intensity = 40
             },
         },
-            Pdf = "SDS datenblatt_0001907_1"
-        };
+        Pdf = "SDS datenblatt_0001907_1",
+        Records = new List<Record>() {
+            new Record()
+            {
+                Department = "Sicherheitsdatenblätter/SDS",
+                Dokument = "Sicherheitsdatenblätter 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Sicherheitsdatenblätter/SDS",
+                Dokument = "Sicherheitsdatenblätter 2013-01-02",
+                Datum = new DateTime(2013, 1, 2),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Sicherheitsdatenblätter/SDS",
+                Dokument = "Sicherheitsdatenblätter 2013-01-03",
+                Datum = new DateTime(2013, 1, 3),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Technische Datenblätter/TDS",
+                Dokument = "Technische Datenblätter 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Bedienungsanleitungen",
+                Dokument = "Bedienungsanleitungen 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "CE-Erklärungen",
+                Dokument = "CE-Erklärungen 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Lieferanten",
+                Dokument = "Lieferanten 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+            new Record()
+            {
+                Department = "Hantierende Personen",
+                Dokument = "Hantierende Personen 2013-01-01",
+                Datum = new DateTime(2013, 1, 1),
+                Status = "Aktuell"
+            },
+        }
+    };
 }
