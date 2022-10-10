@@ -19,7 +19,7 @@
     }
 </style>
 
-<!-- Carousel Ends Here --!>
+<!-- Carousel Ends Here -->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
     <div class="carousel-indicators">
         @for (int i = 0; i < Product.Images.Count; i++)
@@ -47,7 +47,7 @@
                 <div class=@imgClass>
                     <img src=@imgSrc class="d-block w-90 carousel-img" alt="...">
                 </div>
-        };
+        }
 
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -60,9 +60,9 @@
     </button>
 </div>
 
-<!-- Carousel Ends Here --!>
+<!-- Carousel Ends Here -->
 
-<!-- BarChart Starts Here --!>
+<!-- BarChart Starts Here -->
 <DxChart T="HazardNessLevel" Data="@Product.HazardNessLevels" 
             CssClass="shadow"
             Width="100%" 
@@ -111,7 +111,7 @@
                     </div>
     </DxChartTooltip>
 </DxChart>
-<!-- BarChart Ends Here --!>
+<!-- BarChart Ends Here -->
 
 @code {
     [Parameter]
