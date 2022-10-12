@@ -5,10 +5,14 @@
         Data="@Data"
         AutoExpandAllGroupRows="false">
     <Columns>
-        <DxGridDataColumn FieldName="Department" MinWidth="200" GroupIndex="0" />
         <DxGridDataColumn FieldName="Dokument" MinWidth="200" />
         <DxGridDataColumn FieldName="Datum" MinWidth="100" />
         <DxGridDataColumn FieldName="Status" MinWidth="100" />
+        <DxGridDataColumn FieldName="Department" GroupIndex="0">
+            <GroupRowTemplate>
+                @context.GroupValue
+            </GroupRowTemplate>
+        </DxGridDataColumn>
     </Columns>
 </DxGrid>
 
@@ -48,5 +52,27 @@
         foreach (var columnName in currentGroupInfo)
             Grid.GroupBy(columnName);
         Grid.EndUpdate();
+    }
+
+    void Grid_CustomizeGroupValueDisplayText(GridCustomizeGroupValueDisplayTextEventArgs e)
+    {
+        if (e.FieldName == "Department")
+            e.DisplayText = string.Format("{0}", e.Value);
+    }
+
+    void Grid_CustomizeElement(GridCustomizeElementEventArgs e)
+    {
+        //if (e.ElementType == GridElementType.DataRow && (System.Decimal)e.Grid.GetRowValue(e.VisibleIndex, "Total") > 1000)
+        //{
+        //    e.CssClass = "highlighted-item";
+        //}
+        //if (e.ElementType == GridElementType.DataCell && e.Column.Name == "Total")
+        //{
+        //    e.Style = "font-weight: 800";
+        //}
+        if (e.ElementType == GridElementType.GroupRow)
+        {
+            e.Attributes["title"] = string.Join(", ", "Hello");
+        }
     }
 }

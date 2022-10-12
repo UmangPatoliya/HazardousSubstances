@@ -43,14 +43,9 @@
         public string Description_3 { get; set; }
 
         /// <summary>
-        /// List of warnings
-        /// </summary>
-        public List<string> Warning { get; set; }
-
-        /// <summary>
         /// List of informations
         /// </summary>
-        public List<string> Info { get; set; }
+        public List<DescListData> Info { get; set; }
 
         /// <summary>
         /// Name of PDF to view
@@ -66,6 +61,22 @@
         /// Data to display in gridview
         /// </summary>
         public List<Record> Records { get; set; }
+    }
+
+    /// <summary>
+    /// Information list model
+    /// </summary>
+    public class DescListData
+    {
+        /// <summary>
+        /// Name of icon
+        /// </summary>
+        public string IconSrc { get; set; }
+
+        /// <summary>
+        /// String value
+        /// </summary>
+        public string Information { get; set; }
     }
 
     /// <summary>

@@ -22,7 +22,7 @@
     }
 
     .li-image span {
-        text-align: right; 
+        text-align: left; 
         display:inline-block;
         padding: 5px;
     }
@@ -75,22 +75,16 @@
         <div class="row desc-text-style">
             <div class="col">
                 <ul>
-                @foreach (string warn in Product.Warning)
-                {
-                    <li class="li-image">
-                        <img src="images/common/0176 ghs02 entzündbare stoffe.png" />
-                        <span>
-                            @warn
-                        </span>
-                    </li>
-                }
 
-                @foreach (string info in Product.Info)
+                @foreach (DescListData info in Product.Info)
                 {
                     <li class="li-image">
-                            <img src="images/common/gebotszeichen-gehoerschutz-benutzen-nach-iso-7010-m-003-12331-zhYL7-1476126955.png" />
+                        @{
+                            var iconPath = $"images/common/{info.IconSrc}";
+                        }
+                            <img src=@iconPath />
                         <span>
-                            @info
+                            @info.Information
                         </span>
                     </li>
                 }

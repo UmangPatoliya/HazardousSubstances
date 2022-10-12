@@ -77,14 +77,6 @@
                       ValueField="pasi => pasi.Intensity"
                       Filter='pasi => pasi.HazardNessName == "Physikalisch"' />
 
-    <DxChartBarSeries Name="Gesundheit"
-                      T="HazardNessLevel"
-                      TArgument="string"
-                      TValue="int"
-                      ArgumentField="pasi => pasi.HazardNessName"
-                      ValueField="pasi => pasi.Intensity"
-                      Filter='pasi => pasi.HazardNessName == "Gesundheit"' />
-
     <DxChartBarSeries Name="Umwelt"
                       T="HazardNessLevel"
                       TArgument="string"
@@ -92,6 +84,14 @@
                       ArgumentField="pasi => pasi.HazardNessName"
                       ValueField="pasi => pasi.Intensity"
                       Filter='pasi => pasi.HazardNessName == "Umwelt"' />
+
+    <DxChartBarSeries Name="Gesundheit"
+                      T="HazardNessLevel"
+                      TArgument="string"
+                      TValue="int"
+                      ArgumentField="pasi => pasi.HazardNessName"
+                      ValueField="pasi => pasi.Intensity"
+                      Filter='pasi => pasi.HazardNessName == "Gesundheit"' />
 
     <DxChartLegend Position="RelativePosition.Outside"
                    HorizontalAlignment="HorizontalAlignment.Center"

@@ -2,6 +2,12 @@
 @using HazardousSubstancesBlazorServerApp.Pages.Components
 @using HazardousSubstancesBlazorServerApp.Model
 
+<style>
+    .footer-row {
+        padding-bottom: 50px;
+    }
+</style>
+
 <!-- Adaptivity Break Points -->
 <DxLayoutBreakpoint DeviceSize="DeviceSize.XSmall" @bind-IsActive="@isXSmallScreen" />
 <DxLayoutBreakpoint DeviceSize="DeviceSize.Small" @bind-IsActive="@isSmallScreen" />
@@ -76,7 +82,7 @@
         </DxGridLayoutItem>
 
         <!-- Item-5 -->
-        <DxGridLayoutItem Area="item5">
+        <DxGridLayoutItem Area="item5" CssClass="footer-row">
             <Template>
                 <ProductPdf Product=@Product></ProductPdf>
             </Template>
@@ -98,18 +104,15 @@
         Description_1 = "Blazor web forms",
             Description_2 = "When only the Best will do",
         Description_3 = "Universalmotorenöl auf hydrosynthetischer Basis für Benzin- und Dieselmotoren, sowohl neuer als auch 'alter' Marken und mit hoher Laufleistung. Entwickelt auf Basis der Anforderungen europäischer Hersteller.",
-        Warning = new List<string> 
+        Info = new List<DescListData>
         {
-            "Sample text for fire hazard",
-            "Sample text for fire hazard",
-            "Sample text for fire hazard",
-            "Sample text for fire hazard",
-            "Sample text for fire hazard"
-        },
-        Info = new List<string>
-        {
-            "Sample text for ear protection",
-            "Sample text for ear protection"
+            new DescListData() { IconSrc="0176 ghs02 entzündbare stoffe.png", Information = "Sample text for fire hazard" },
+            new DescListData() { IconSrc="0176 ghs02 entzündbare stoffe.png", Information = "Sample text for fire hazard" },
+            new DescListData() { IconSrc="0176 ghs02 entzündbare stoffe.png", Information = "Sample text for fire hazard" },
+            new DescListData() { IconSrc="0176 ghs02 entzündbare stoffe.png", Information = "Sample text for fire hazard" },
+            new DescListData() { IconSrc="0176 ghs02 entzündbare stoffe.png", Information = "Sample text for fire hazard" },
+            new DescListData() { IconSrc="gebotszeichen-gehoerschutz-benutzen-nach-iso-7010-m-003-12331-zhYL7-1476126955.png", Information = "Sample text for ear protection" },
+            new DescListData() { IconSrc="gebotszeichen-gehoerschutz-benutzen-nach-iso-7010-m-003-12331-zhYL7-1476126955.png", Information = "Sample text for ear protection" }
         },
         Images = new List<string>
         {
@@ -126,12 +129,12 @@
             },
             new HazardNessLevel()
             {
-                HazardNessName = "Gesundheit",
+                HazardNessName = "Umwelt",
                 Intensity = 70
             },
             new HazardNessLevel()
             {
-                HazardNessName = "Umwelt",
+                HazardNessName = "Gesundheit",
                 Intensity = 40
             },
         },
